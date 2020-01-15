@@ -1,0 +1,33 @@
+<a class="shopping-cart-icon" [class.float-right]="isCollapsed" (click)="onCartClick(template)">
+    <i class="material-icons mr-2 ">shopping_cart</i>
+    <span class="count" [class.none]="!count">{{count}}</span>
+</a>
+
+<ng-template #template>
+    <ng-container *ngIf="products$.value.length else empty">
+        <div class="modal-header">
+            <h5 class="modal-title">購物車</h5>
+        </div>
+        <div class="modal-body">
+            <ng-container *ngFor="let item of products$.value; let index=index;">
+                <div class="d-flex align-items-center pb-3">
+                    <span class="mx-5"> 產品{{item.id}}</span>
+                    <button class="btn btn-primary" (click)="substract(item.id)">-</button>
+                    <span class="prod-count">{{item.count}}</span>
+                    <button class="btn btn-primary" (click)="add(item.id)">+</button>
+                    <span style="text-align: right; width: 160px;">{{item.count*item.unitPrice | number:'.'}}點</span>
+                </div>
+            </ng-container>
+            <div class="total-price">小計 {{total | number:'.'}}點</div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="detailModalRef.hide()">繼續購買</button>
+                <button type="button" class="btn btn-primary" (click)="checkout()">前往結帳</button>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>
+
+<ng-template #empty>
+    <div class="modal-body">購物車暫無商品!</div>
+</ng-template>

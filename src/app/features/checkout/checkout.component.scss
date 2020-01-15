@@ -1,0 +1,8 @@
+.form-container {
+    margin: 6rem auto;
+}
+
+input.ng-touched.ng-invalid {
+    border: #f8d7da 2px solid;
+    border-left: salmon 4px solid;
+}

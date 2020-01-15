@@ -1,0 +1,18 @@
+<div class="row">
+    <ng-container *ngFor="let item of products">
+        <div class="col-lg-3 col-sm-6 col-xs-12 mt-4">
+            <div class="card">
+                <i class="material-icons product">card_travel</i>
+                <div class="card-body">
+                    <h6 class="card-title">產品{{item.id}}
+                        <span class="float-right">{{item.unitPrice| number:'.'}}點</span></h6>
+                    <p>產品敘述...</p>
+                    <a class="btn btn-light float-right" title="加入購物車" (click)="addCart(item.id, item.unitPrice)">
+                        <i class="material-icons">add_shopping_cart</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </ng-container>
+</div>

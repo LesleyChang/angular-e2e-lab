@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.material-icons {
+    line-height: inherit;
+}
+
+body {
+    font-family: '微軟正黑體';
+}
+
+a {
+    cursor: pointer;
+}
