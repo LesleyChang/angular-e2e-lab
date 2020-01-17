@@ -1,0 +1,14 @@
+image: node:latest
+
+before_script:
+    - npm install
+
+deploy_prod:
+    stage: deploy
+    only:
+        - feature/gitlab-cd
+    script:
+        - npm run deploy
+    artifacts:
+        paths:
+            - dist/
