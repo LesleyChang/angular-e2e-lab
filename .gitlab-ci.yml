@@ -3,6 +3,14 @@ image: node:latest
 before_script:
     - npm install
 
+e2e_test:
+    image: trion/ng-cli-e2e
+    stage: test
+    only:
+        - feature/gitlab-cd
+    script:
+        - npm run e2e
+
 deploy_prod:
     image: andreysenov/firebase-tools
     stage: deploy
