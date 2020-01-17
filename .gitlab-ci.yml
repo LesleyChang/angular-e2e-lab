@@ -4,11 +4,15 @@ before_script:
     - npm install
 
 deploy_prod:
+    image: andreysenov/firebase-tools
     stage: deploy
+    environment:
+        name: production
     only:
         - feature/gitlab-cd
     script:
-        - npm run deploy
+        - npm run build-prod
+        - npm run deploy-firebase
     artifacts:
         paths:
             - dist/
