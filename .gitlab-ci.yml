@@ -19,9 +19,6 @@ deploy_prod:
     cache:
         paths:
           - node_modules/
-    before_script:
-        - npm install -g @angular/cli
-        - npm install
     stage: deploy
     environment:
         name: production
