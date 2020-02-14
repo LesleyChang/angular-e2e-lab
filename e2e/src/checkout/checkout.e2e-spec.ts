@@ -57,6 +57,7 @@ describe('MyApp Checkout', () => {
 
     await page.clickSendBtn();
     // expect(await page.getModalBodyText()).toEqual(successMsg);
+
     await page.getModalContainer().click();
     expect(await browser.getCurrentUrl()).toMatch('/home$');
   });
