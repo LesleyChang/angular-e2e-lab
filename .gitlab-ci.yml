@@ -1,10 +1,13 @@
 image: node:latest
 
-before_script:
-    - npm install
-
 e2e_test:
     image: trion/ng-cli-e2e
+    cache:
+        paths:
+          - node_modules/
+    before_script:
+        - npm install -g @angular/cli
+        - npm install
     stage: test
     only:
         - feature/gitlab-cd
@@ -13,6 +16,12 @@ e2e_test:
 
 deploy_prod:
     image: andreysenov/firebase-tools
+    cache:
+        paths:
+          - node_modules/
+    before_script:
+        - npm install -g @angular/cli
+        - npm install
     stage: deploy
     environment:
         name: production
