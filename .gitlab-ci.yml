@@ -16,9 +16,9 @@ e2e_test:
 
 deploy_prod:
     image: andreysenov/firebase-tools
-    cache:
-        paths:
-          - node_modules/
+    before_script:
+      - npm install -g @angular/cli
+      - npm install
     stage: deploy
     environment:
         name: production
